@@ -1,7 +1,6 @@
 /*jshint esversion: 6*/
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {AsyncStorage} from 'react-native';
 
 class App extends Component {
 
