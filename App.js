@@ -1,5 +1,11 @@
-import {AppRegistry} from 'react-native';
-import App from './src';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import Root from './src';
 
-
-AppRegistry.registerComponent('Kanban', () => App);
+export default class App extends React.Component {
+  render() {
+    return (
+      <Root/>
+    );
+  }
+}
