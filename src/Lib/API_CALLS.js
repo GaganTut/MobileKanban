@@ -1,6 +1,8 @@
 /*jshint esversion: 6*/
 
-export const addCard = (cardObj) => fetch(`/api/cards/board/${cardObj.attachedTo}`, {
+const SERVER_ADDRESS = 'http://kanban.gstut.com';
+
+export const addCard = (cardObj) => fetch(`${SERVER_ADDRESS}/api/cards/board/${cardObj.attachedTo}`, {
     method: 'POST',
     credentials: 'include',
     headers: new Headers({
@@ -11,7 +13,7 @@ export const addCard = (cardObj) => fetch(`/api/cards/board/${cardObj.attachedTo
     .then(res => res.json())
     .catch(err => err);
 
-export const updateCard = (cardObj) => fetch(`/api/cards/${cardObj.id}`, {
+export const updateCard = (cardObj) => fetch(`${SERVER_ADDRESS}/api/cards/${cardObj.id}`, {
     method: 'PUT',
     credentials: 'include',
     headers: new Headers({
@@ -22,14 +24,14 @@ export const updateCard = (cardObj) => fetch(`/api/cards/${cardObj.id}`, {
     .then(res => res.json())
     .catch(err => err);
 
-export const deleteCard = (id) => fetch(`/api/cards/${id}`, {
+export const deleteCard = (id) => fetch(`${SERVER_ADDRESS}/api/cards/${id}`, {
     method: 'DELETE',
     credentials: 'include',
   })
     .then(res => res.json())
     .catch(err => err);
 
-export const loginUser = (email, password) => fetch('/api/user/login', {
+export const loginUser = (email, password) => fetch(`${SERVER_ADDRESS}/api/user/login`, {
     method: 'POST',
     credentials: 'include',
     headers: new Headers({
@@ -40,7 +42,7 @@ export const loginUser = (email, password) => fetch('/api/user/login', {
     .then(res => res.json())
     .catch(err => err);
 
-export const signupUser = userInfo => fetch('/api/user/new', {
+export const signupUser = userInfo => fetch(`${SERVER_ADDRESS}/api/user/new`, {
   method: 'POST',
   credentials: 'include',
   headers: new Headers({
@@ -51,31 +53,31 @@ export const signupUser = userInfo => fetch('/api/user/new', {
   .then(res => res.json())
   .catch(err => err);
 
-export const logoutUser = () => fetch('/api/user/logout',{credentials: 'include'
+export const logoutUser = () => fetch(`${SERVER_ADDRESS}/api/user/logout`,{credentials: 'include'
 })
   .then(res => res.json())
   .catch(err => err);
 
 
-export const checkLogin = () => fetch('/api/user/check', {
+export const checkLogin = () => fetch(`${SERVER_ADDRESS}/api/user/check`, {
   credentials: 'include'
 })
   .then(res => res.json())
   .catch(err => err);
 
-export const loadBoards = () => fetch('/api/boards/', {
+export const loadBoards = () => fetch(`${SERVER_ADDRESS}/api/boards/`, {
   credentials: 'include'
 })
   .then(res => res.json())
   .catch(err => err);
 
-export const loadCards = id => fetch(`/api/cards/board/${id}`, {
+export const loadCards = id => fetch(`${SERVER_ADDRESS}/api/cards/board/${id}`, {
   credentials: 'include'
 })
   .then(res => res.json())
   .catch(err => err);
 
-export const createBoard = boardObj => fetch(`/api/boards/`, {
+export const createBoard = boardObj => fetch(`${SERVER_ADDRESS}/api/boards/`, {
   method: 'POST',
   credentials: 'include',
   headers: new Headers({
@@ -86,7 +88,7 @@ export const createBoard = boardObj => fetch(`/api/boards/`, {
   .then(res => res.json())
   .catch(err => err);
 
-export const addBoardUser = permissionObj => fetch(`/api/boards/${permissionObj.BoardId}`, {
+export const addBoardUser = permissionObj => fetch(`${SERVER_ADDRESS}/api/boards/${permissionObj.BoardId}`, {
     method: 'PUT',
     credentials: 'include',
     headers: new Headers({

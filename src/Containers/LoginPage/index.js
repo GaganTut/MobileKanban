@@ -1,9 +1,12 @@
 /*jshint esversion: 6*/
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 
 class LoginPage extends Component {
+  componentDidMount() {
+    console.log('Heyyyyyyyy');
+  }
 
   render() {
     return (
@@ -12,7 +15,9 @@ class LoginPage extends Component {
           LOGIN PAGE
         </Text>
         <TouchableOpacity>
-
+          <Text>
+            Hello
+          </Text>
         </TouchableOpacity>
       </View>
     );
