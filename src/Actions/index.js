@@ -2,6 +2,19 @@
 import * as types from '../Constants';
 import * as API from '../Lib/API_CALLS';
 
+export const loadApp = () => dispatch => {
+  dispatch({type: types.FETCHING_IN_PROGRESS});
+  return API.checkLogin()
+  .then(res => {
+    dispatch({type: types.FETCHING_DONE});
+    if (res.success) {
+      dispatch(loadBoards());
+      dispatch({type: types.LOG_IN, user: res.user});
+    }
+    dispatch({type: types.AUTH_CHECKED});
+  });
+};
+
 export const loadBoards = () => dispatch => {
   dispatch({type: types.FETCHING_IN_PROGRESS});
   return API.loadBoards()
@@ -127,18 +140,6 @@ export const createBoard = title => dispatch => {
       dispatch(refreshBoards());
     } else {
       dispatch({type: types.THROW_ERROR, error: 'Failed to create board'});
-    }
-  });
-};
-
-export const loadApp = () => dispatch => {
-  dispatch({type: types.FETCHING_IN_PROGRESS});
-  return API.checkLogin()
-  .then(res => {
-    dispatch({type: types.FETCHING_DONE});
-    if (res.success) {
-      dispatch(loadBoards());
-      dispatch({type: types.LOG_IN, user: res.user});
     }
   });
 };

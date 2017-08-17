@@ -2,14 +2,12 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {loadApp} from '../../Actions';
+import {View} from 'react-native';
 
 class App extends Component {
-  componentWillMount() {
-    this.props.loadApp();
-  }
 
   render() {
-    return (<div></div>);
+    return (<View></View>);
   }
 }
 

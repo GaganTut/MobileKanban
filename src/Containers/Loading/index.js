@@ -2,19 +2,29 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {loadApp} from '../../Actions';
+import {View} from 'react-native';
+import InitialLoadScreen from '../../Components/InitialLoadScreen';
+import Login from '../Login';
+import Home from '../Home';
 
 class App extends Component {
   componentWillMount() {
     this.props.loadApp();
   }
 
+  renderApplication = () => {
+    console.log('Hereee');
+    return this.props.loggedIn ? (<Login />) : (<Home />)
+  }
+
   render() {
-    return (<div></div>);
+    return this.props.authChecked ? this.renderApplication() : (<InitialLoadScreen />);
   }
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.users.loggedIn
+  loggedIn: state.users.loggedIn,
+  authChecked: state.users.authChecked
 });
 
 const mapDispatchToProps = dispatch => ({
