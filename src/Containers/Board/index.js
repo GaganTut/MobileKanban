@@ -2,8 +2,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {loadApp} from '../../Actions';
-import HomePage from '../HomePage';
-import LoginPage from '../LoginPage';
 
 class App extends Component {
   componentWillMount() {
@@ -11,7 +9,7 @@ class App extends Component {
   }
 
   render() {
-    return this.props.loggedIn ? (<HomePage/>) : (<LoginPage />);
+    return (<div></div>);
   }
 }
 
