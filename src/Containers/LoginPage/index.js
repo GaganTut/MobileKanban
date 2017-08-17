@@ -11,6 +11,9 @@ class LoginPage extends Component {
         <Text>
           LOGIN PAGE
         </Text>
+        <TouchableOpacity>
+
+        </TouchableOpacity>
       </View>
     );
   }
