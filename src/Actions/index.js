@@ -2,20 +2,6 @@
 import * as types from '../Constants';
 import * as API from '../Lib/API_CALLS';
 
-export const loadApp = () => dispatch => {
-  dispatch({type: types.FETCHING_IN_PROGRESS});
-  console.log('Hit');
-  return API.checkLogin()
-  .then(res => {
-    console.log(res);
-    dispatch({type: types.FETCHING_DONE});
-    if (res.success) {
-      dispatch(loadBoards());
-      dispatch({type: types.LOG_IN, user: res.user});
-    }
-  });
-};
-
 export const loadBoards = () => dispatch => {
   dispatch({type: types.FETCHING_IN_PROGRESS});
   return API.loadBoards()
@@ -37,9 +23,9 @@ export const refreshBoards = () => dispatch => {
   });
 };
 
-export const login = (email, password) => dispatch => {
+export const login = authObj => dispatch => {
   dispatch({type: types.FETCHING_IN_PROGRESS});
-  return API.loginUser(email, password)
+  return API.login(authObj)
   .then(res => {
     dispatch({type: types.FETCHING_DONE});
     if (res.success) {
@@ -141,6 +127,18 @@ export const createBoard = title => dispatch => {
       dispatch(refreshBoards());
     } else {
       dispatch({type: types.THROW_ERROR, error: 'Failed to create board'});
+    }
+  });
+};
+
+export const loadApp = () => dispatch => {
+  dispatch({type: types.FETCHING_IN_PROGRESS});
+  return API.checkLogin()
+  .then(res => {
+    dispatch({type: types.FETCHING_DONE});
+    if (res.success) {
+      dispatch(loadBoards());
+      dispatch({type: types.LOG_IN, user: res.user});
     }
   });
 };

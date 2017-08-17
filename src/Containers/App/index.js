@@ -7,8 +7,7 @@ import LoginPage from '../LoginPage';
 
 class App extends Component {
   componentWillMount() {
-    console.log(this.props);
-    //this.props.loadApp();
+    this.props.loadApp();
   }
 
   render() {
@@ -21,7 +20,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadApp: dispatch(loadApp())
+  loadApp: () => dispatch(loadApp())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
