@@ -11,20 +11,7 @@ import Form from './Containers/Form';
 import Login from './Containers/Login';
 
 const tabBarOptions = {
-  swipeEnabled: false,
-  tabBarPosition: 'bottom',
-  tabBarOptions: {
-    pressColor: '#F2C71B',
-    labelStyle: {
-      color: '#FFF',
-      fontWeight: 'bold'
-    },
-    style: {
-      backgroundColor: '#65D0E8',
-    },
-    showIcon: true,
-    showLabel: false
-  }
+  tabBarPosition: 'bottom'
 };
 
 const authNav = {
@@ -35,6 +22,7 @@ const authNav = {
 export const AuthNav = TabNavigator(authNav, tabBarOptions);
 
 const columnNav = {
+  List: {screen: List},
   Card: {screen: Card},
   EditCard: {screen: EditCard},
   Form: {screen: Form},

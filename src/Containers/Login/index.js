@@ -47,16 +47,8 @@ class LoginPage extends Component {
           </Text>
         </TouchableOpacity>
         <Text>
-          Don't have an account?
+          Don't have an account? Register Below
         </Text>
-        <TouchableOpacity
-          style={styles.buttonContainer}
-          onPress={()=> this.props.navigation.navigate('Register')}
-        >
-          <Text>
-            Register Now
-          </Text>
-        </TouchableOpacity>
       </View>
     );
   }

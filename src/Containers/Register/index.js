@@ -2,7 +2,8 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {register} from '../../Actions';
-import {View} from 'react-native';
+import {View, Text, TouchableOpacity, TextInput} from 'react-native';
+import styles from './styles';
 
 class App extends Component {
   constructor(props) {
