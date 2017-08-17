@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import {loadApp} from '../../Actions';
 import {View} from 'react-native';
 import InitialLoadScreen from '../../Components/InitialLoadScreen';
-import Login from '../Login';
-import Home from '../Home';
+import AuthNavigation from '../../Navigators/AuthNavigation';
+import HomeNavigation from '../../Navigators/HomeNavigation';
 
 class App extends Component {
   componentWillMount() {
@@ -13,8 +13,7 @@ class App extends Component {
   }
 
   renderApplication = () => {
-    console.log('Hereee');
-    return this.props.loggedIn ? (<Login />) : (<Home />)
+    return this.props.loggedIn ? (<AuthNavigation />) : (<HomeNavigation />)
   }
 
   render() {

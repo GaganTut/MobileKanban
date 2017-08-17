@@ -51,7 +51,7 @@ class LoginPage extends Component {
         </Text>
         <TouchableOpacity
           style={styles.buttonContainer}
-          onPress={()=> this.props.login(this.state)}
+          onPress={()=> this.props.navigation.navigate('Register')}
         >
           <Text>
             Register Now

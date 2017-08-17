@@ -60,14 +60,14 @@ export const logout = () => dispatch => {
   });
 };
 
-export const signup = userInfo => dispatch => {
+export const register = userInfo => dispatch => {
   dispatch({type: types.FETCHING_IN_PROGRESS});
   API.signupUser(userInfo)
     .then(res => {
       dispatch({type: types.FETCHING_DONE});
       if (res.success) {
         dispatch({type: types.CLOSE_FORMS});
-        dispatch(login(userInfo.email, userInfo.password));
+        dispatch(login({email: userInfo.email, password: userInfo.password}));
       } else {
         dispatch({type: types.THROW_ERROR, error: 'Sign Up Failed'});
       }

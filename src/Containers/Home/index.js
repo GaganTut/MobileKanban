@@ -1,6 +1,6 @@
 /*jshint esversion: 6*/
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import { connect } from 'react-redux';
 
 class HomePage extends Component {
@@ -11,6 +11,13 @@ class HomePage extends Component {
         <Text>
           HOME PAGE
         </Text>
+        <TouchableOpacity
+          onPress={()=> this.props.navigation.navigate('Board')}
+        >
+          <Text>
+            Register Now
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }

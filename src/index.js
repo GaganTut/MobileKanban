@@ -2,13 +2,13 @@
 import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from './configureStore';
-import App from './routeConfig';
+import Loading from './Containers/Loading';
 
 export default class Root extends Component {
   render() {
     return (
       <Provider store={store}>
-        <App />
+        <Loading />
       </Provider>
     );
   }
